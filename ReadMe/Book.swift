@@ -6,21 +6,21 @@
 //
 import Combine
 
-class Book:ObservableObject {
+class Book:ObservableObject,Codable {
     
     
     @Published var title: String
     @Published var author: String
     @Published var microReview: String
-    @Published var readme: Bool
+    @Published var readMe: Bool
     
     
     init(title: String = "Title",author: String = "Author",
-         microReview: String = "",readme : Bool = true){
+         microReview: String = "",readMe : Bool = true){
         self.title = title
         self.author = author
         self.microReview = microReview
-        self.readme = readme
+        self.readMe = readMe
     }
 }
 

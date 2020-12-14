@@ -12,9 +12,9 @@ struct BookMarkButton : View {
     var body: some View{
         let bookmark = "bookmark"
         Button{
-            book.readme.toggle()
+            book.readMe.toggle()
         }label:{
-            Image(systemName: book.readme ? "\(bookmark).fill" : bookmark).font(.system(size: 48,weight:.light))
+            Image(systemName: book.readMe ? "\(bookmark).fill" : bookmark).font(.system(size: 48,weight:.light))
         }
     }
 }
@@ -49,7 +49,7 @@ struct Book_Previews: PreviewProvider{
         VStack {
             HStack{
                 BookMarkButton(book: .init())
-                BookMarkButton(book: .init(readme:false))
+                BookMarkButton(book: .init(readMe:false))
                 TitleAndAuthorStack(book: .init(), titleFont: .title, authorFont:.title2)
             }
             Book.Image(title: Book().title)

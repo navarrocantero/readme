@@ -9,13 +9,13 @@ import SwiftUI
 
 struct BookRowView: View {
     @ObservedObject var book: Book
-    @Binding var image: UIImage?
+    @EnvironmentObject var library : Library
     
     var body: some View {
         NavigationLink(
-            destination:DetailView(book:book,image : $image)){
+            destination:DetailView(book:book)){
             HStack{
-                Book.Image(uiImage: image,title:book.title,size:80,cornerRadius: 12)
+                Book.Image(uiImage: library.uiImages[book],title:book.title,size:80,cornerRadius: 12)
                 
                 VStack(alignment:.leading){
                     
@@ -37,7 +37,7 @@ struct BookRowView: View {
 struct BookRowView_Previews: PreviewProvider {
     
     static var previews: some View {
-        BookRowView(book: .init(),image: .constant(nil))
+        BookRowView(book: .init()).environmentObject(Library())
     }
 }
 
